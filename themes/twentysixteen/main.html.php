@@ -19,6 +19,9 @@
     <header class="entry-header">
         <?php if (!empty($p->link)) {?>
             <div class="post-link"><h2 class="entry-title"><a target="_blank" href="<?php echo $p->link;?>"><?php echo $p->title;?></a></h2></div>
+            <?php if (!empty($p->caption)) { ?>
+                <div class="caption"><?php echo $p->caption ?></div>
+            <?php } ?>
         <?php } else { ?>
             <h2 class="entry-title"><a href="<?php echo $p->url;?>"><?php echo $p->title;?></a></h2>
         <?php } ?>
@@ -26,6 +29,9 @@
 
     <?php if (!empty($p->image)):?>
     <a class="post-thumbnail" href="<?php echo $p->url;?>"><img alt="<?php echo $p->title;?>" src="<?php echo $p->image;?>" width="100%"/></a>
+    <?php if (!empty($p->caption)) { ?>
+        <div class="caption"><?php echo $p->caption ?></div>
+    <?php } ?>
     <?php endif;?>
         
     <div class="entry-content">
@@ -34,12 +40,21 @@
                 <div class="content">
                     <?php if (!empty($p->quote)):?>
                         <blockquote><?php echo $p->quote;?></blockquote>
+                        <?php if (!empty($p->caption)) { ?>
+                            <div class="caption"><?php echo $p->caption ?></div>
+                        <?php } ?>
                     <?php endif;?>
                     <?php if (!empty($p->video)):?>
                         <span class="embed-youtube"><iframe width="100%" height="315px" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $p->video; ?>" frameborder="0" allowfullscreen></iframe></span>
+                        <?php if (!empty($p->caption)) { ?>
+                            <div class="caption"><?php echo $p->caption ?></div>
+                        <?php } ?>
                     <?php endif; ?>
                     <?php if (!empty($p->audio)):?>
                         <span class="embed-soundcloud"><iframe width="100%" height="200px" class="embed-responsive-item" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<?php echo $p->audio;?>&amp;auto_play=false&amp;visual=true"></iframe></span>
+                        <?php if (!empty($p->caption)) { ?>
+                            <div class="caption"><?php echo $p->caption ?></div>
+                        <?php } ?>
                     <?php endif; ?>
                     <?php echo get_teaser($p->body, $p->url);?>
                     <?php if (config('teaser.type') === 'trimmed'):?><a class="more-link" href="<?php echo $p->url; ?>">Continue reading</a><?php endif;?>

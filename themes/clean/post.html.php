@@ -7,6 +7,9 @@
         <a name="more"></a>
         <?php if (!empty($p->link)) { ?>
         <h1 class="title-post" itemprop="name"><a target="_blank" href="<?php echo $p->link ?>"><?php echo $p->title ?> &rarr;</a></h1>
+        <?php if (!empty($p->caption)) { ?>
+            <div class="caption"><?php echo $p->caption ?></div>
+        <?php } ?>
         <?php } else { ?>
         <h1 class="title-post" itemprop="name"><?php echo $p->title ?></h1>
         <?php } ?>
@@ -19,22 +22,34 @@
         </div>
         <?php if (!empty($p->image)) { ?>
             <div class="featured-image">
-                <a href="<?php echo $p->url ?>"><img src="<?php echo $p->image; ?>" alt="<?php echo $p->title ?>"/></a>
+                <a href="<?php echo $p->image ?>"><img src="<?php echo $p->image; ?>" alt="<?php echo $p->title ?>"/></a>
+                <?php if (!empty($p->caption)) { ?>
+                    <div class="caption"><?php echo $p->caption ?></div>
+                <?php } ?>
             </div>
         <?php } ?>
         <?php if (!empty($p->video)) { ?>
             <div class="featured-video">
                 <iframe src="https://www.youtube.com/embed/<?php echo $p->video; ?>" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+                <?php if (!empty($p->caption)) { ?>
+                    <div class="caption"><?php echo $p->caption ?></div>
+                <?php } ?>
             </div>
         <?php } ?>
         <?php if (!empty($p->audio)) { ?>
             <div class="featured-audio">
                 <iframe width="560" height="315" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<?php echo $p->audio;?>&amp;auto_play=false&amp;visual=true"></iframe>
+                <?php if (!empty($p->caption)) { ?>
+                    <div class="caption"><?php echo $p->caption ?></div>
+                <?php } ?>
             </div>
         <?php } ?>
         <?php if (!empty($p->quote)) { ?>
             <div class="featured-quote">
                 <blockquote><?php echo $p->quote ?></blockquote>
+                <?php if (!empty($p->caption)) { ?>
+                    <div class="caption"><?php echo $p->caption ?></div>
+                <?php } ?>
             </div>
         <?php } ?>
         <div class="post-body" itemprop="articleBody">

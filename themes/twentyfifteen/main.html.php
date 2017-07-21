@@ -18,26 +18,41 @@
     <?php if (!empty($p->image)):?>
     <div class="post-thumbnail">
         <img style="width:100%;" title="<?php echo $p->title; ?>" alt="<?php echo $p->title; ?>" class="attachment-post-thumbnail wp-post-image" src="<?php echo $p->image; ?>">
+        <?php if (!empty($p->caption)) { ?>
+            <div class="caption"><?php echo $p->caption ?></div>
+        <?php } ?>
     </div>
     <?php endif; ?>
     <?php if (!empty($p->audio)):?>
     <div class="post-thumbnail">
         <iframe width="100%" height="200px" class="embed-responsive-item" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<?php echo $p->audio;?>&amp;auto_play=false&amp;visual=true"></iframe>
+        <?php if (!empty($p->caption)) { ?>
+            <div class="caption"><?php echo $p->caption ?></div>
+        <?php } ?>
     </div>
     <?php endif; ?>
     <?php if (!empty($p->video)):?>
     <div class="post-thumbnail">
         <iframe width="100%" height="315px" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $p->video; ?>" frameborder="0" allowfullscreen></iframe>
+        <?php if (!empty($p->caption)) { ?>
+            <div class="caption"><?php echo $p->caption ?></div>
+        <?php } ?>
     </div>
     <?php endif; ?>
     <?php if (!empty($p->quote)):?>
     <div class="post-blockquote">
         <blockquote class="quote"><?php echo $p->quote ?></blockquote>
+        <?php if (!empty($p->caption)) { ?>
+            <div class="caption"><?php echo $p->caption ?></div>
+        <?php } ?>
     </div>
     <?php endif; ?>
     <?php if (!empty($p->link)) { ?>
     <header class="entry-header">
-        <div class="post-link"><h2 class="entry-title"><a target="_blank" href="<?php echo $p->url; ?>"><?php echo $p->title; ?></a></h2></div>
+        <div class="post-link"><h2 class="entry-title"><a target="_blank" href="<?php echo $p->url; ?>"><?php echo $p->title; ?></a></h2>
+        <?php if (!empty($p->caption)) { ?>
+            <div class="caption"><?php echo $p->caption ?></div>
+        <?php } ?></div>
     </header>
     <?php } else { ?>
     <header class="entry-header">
