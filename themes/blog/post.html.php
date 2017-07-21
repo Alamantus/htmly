@@ -8,27 +8,42 @@
             <div class="item">
                 <?php if (!empty($p->image)) { ?>
                     <div class="featured featured-image">
-                        <a href="<?php echo $p->url ?>"><img itemprop="image" src="<?php echo $p->image; ?>" alt="<?php echo $p->title ?>"/></a>
+                        <a href="<?php echo $p->image ?>"><img itemprop="image" src="<?php echo $p->image; ?>" alt="<?php echo $p->title ?>"/></a>
+                        <?php if (!empty($p->caption)) { ?>
+                            <div class="caption"><?php echo $p->caption ?></div>
+                        <?php } ?>
                     </div>
                 <?php } ?>
                 <?php if (!empty($p->video)) { ?>
                     <div class="featured featured-video embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $p->video; ?>" frameborder="0" allowfullscreen></iframe>
+                        <?php if (!empty($p->caption)) { ?>
+                            <div class="caption"><?php echo $p->caption ?></div>
+                        <?php } ?>
                     </div>
                 <?php } ?>
                 <?php if (!empty($p->audio)) { ?>
                     <div class="featured featured-audio embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<?php echo $p->audio;?>&amp;auto_play=false&amp;visual=true"></iframe>
+                        <?php if (!empty($p->caption)) { ?>
+                            <div class="caption"><?php echo $p->caption ?></div>
+                        <?php } ?>
                     </div>
                 <?php } ?>
                 <?php if (!empty($p->quote)) { ?>
                     <div class="featured featured-quote">
                         <blockquote class="quote"><i class="fa fa-quote-left"></i> <?php echo $p->quote ?> <i class="fa fa-quote-right"></i></blockquote>
+                        <?php if (!empty($p->caption)) { ?>
+                            <div class="caption"><?php echo $p->caption ?></div>
+                        <?php } ?>
                     </div>
                 <?php } ?>
                 <div class="info text-left">
                     <?php if (!empty($p->link)) { ?>
                         <h1 class="title" itemprop="headline"><a target="_blank" href="<?php echo $p->link ?>"><?php echo $p->title;?> <i class="fa fa-external-link"></i></a></h1>
+                        <?php if (!empty($p->caption)) { ?>
+                            <div class="caption"><?php echo $p->caption ?></div>
+                        <?php } ?>
 					<?php } else { ?>
 						<h1 class="title" itemprop="headline"><?php echo $p->title;?></h1>
 					<?php } ?>
